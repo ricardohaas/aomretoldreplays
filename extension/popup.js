@@ -86,7 +86,7 @@ const fetchBtn = document.getElementById('fetchUrlBtn');
 const fetchStatus = document.getElementById('fetchStatus');
 
 chrome.storage.local.get(URL_STORAGE_KEY).then(async result => {
-  const savedUrl = result[URL_STORAGE_KEY] || 'https://raw.githubusercontent.com/ricardohaas/aomretoldreplays/main/aomstats-links.json';
+  const savedUrl = result[URL_STORAGE_KEY] || 'https://raw.githubusercontent.com/ricardohaas/aomretoldreplays/master/aomstats-links.json';
   urlInput.value = savedUrl;
   if (savedUrl) {
     fetchStatus.textContent = 'Buscando dados...';
