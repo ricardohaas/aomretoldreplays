@@ -85,9 +85,21 @@ const urlInput = document.getElementById('jsonUrl');
 const fetchBtn = document.getElementById('fetchUrlBtn');
 const fetchStatus = document.getElementById('fetchStatus');
 
-chrome.storage.local.get(URL_STORAGE_KEY).then(result => {
-  if (result[URL_STORAGE_KEY]) {
-    urlInput.value = result[URL_STORAGE_KEY];
+chrome.storage.local.get(URL_STORAGE_KEY).then(async result => {
+  const savedUrl = result[URL_STORAGE_KEY] || 'https://raw.githubusercontent.com/ricardohaas/aomretoldreplays/main/aomstats-links.json';
+  urlInput.value = savedUrl;
+  if (savedUrl) {
+    fetchStatus.textContent = 'Buscando dados...';
+    try {
+      const res = await fetch(savedUrl);
+      if (res.ok) {
+        const imported = await res.json();
+        await importData(imported);
+        fetchStatus.textContent = `Sincronizado! (${imported.length} registro(s))`;
+      }
+    } catch {
+      fetchStatus.textContent = 'Não foi possível sincronizar automaticamente.';
+    }
   }
 });
 
