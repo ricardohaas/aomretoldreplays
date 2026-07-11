@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "AOM Stats Video Linker",
+  "version": "1.0",
+  "description": "Adiciona links para vídeos do YouTube na página de replays do aomstats.io",
+  "permissions": ["storage"],
+  "host_permissions": [
+    "https://aomstats.io/*",
+    "https://raw.githubusercontent.com/*",
+    "https://github.com/*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "AOM Video Linker"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://aomstats.io/replays*"],
+      "js": ["content.js"],
+      "css": ["content.css"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["youtube-icon.svg"],
+      "matches": ["https://aomstats.io/*"]
+    }
+  ]
+}

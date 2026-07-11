@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AOM Video Linker</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <h1>AOM Video Linker</h1>
+    <p class="subtitle">Vincula vídeos do YouTube aos replays</p>
+
+    <div class="section">
+      <h2>Origem dos Dados</h2>
+
+      <div class="tab-bar">
+        <button class="tab-btn active" data-tab="file">Arquivo</button>
+        <button class="tab-btn" data-tab="url">URL (GitHub)</button>
+      </div>
+
+      <div id="tab-file" class="tab-content active">
+        <p class="info">Importe o arquivo JSON exportado do app de cadastro.</p>
+        <button id="importBtn">Selecionar arquivo JSON</button>
+        <input type="file" id="importFile" accept=".json" style="display:none">
+      </div>
+
+      <div id="tab-url" class="tab-content">
+        <p class="info">URL raw do JSON no GitHub (ex: raw.githubusercontent.com/...).</p>
+        <input type="url" id="jsonUrl" placeholder="https://raw.githubusercontent.com/..." value="">
+        <button id="fetchUrlBtn">Baixar da URL</button>
+        <span id="fetchStatus"></span>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Links Carregados</h2>
+      <div id="stats">
+        <p id="countMsg">Nenhum link carregado.</p>
+      </div>
+      <div id="linkList"></div>
+    </div>
+
+    <div class="section">
+      <button id="clearBtn" class="danger">Limpar Dados</button>
+    </div>
+
+    <p class="footer">Os links aparecerão como ícones do YouTube ao lado dos IDs na página <a href="https://aomstats.io/replays" target="_blank">aomstats.io/replays</a>.</p>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

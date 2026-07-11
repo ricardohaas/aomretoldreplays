@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gerenciador de Links AOM</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Gerenciador de Links - Replays AOM</h1>
+      <p>Cadastre IDs de partidas e vincule vídeos do YouTube</p>
+    </header>
+
+    <section class="form-section">
+      <h2>Adicionar Jogo</h2>
+      <form id="gameForm">
+        <div class="form-group">
+          <label for="gameId">ID da Partida (número após "ID:" na página)</label>
+          <input type="number" id="gameId" placeholder="Ex: 123456" required>
+        </div>
+        <div class="form-group">
+          <label for="videoUrl">URL do Vídeo (YouTube)</label>
+          <input type="url" id="videoUrl" placeholder="https://www.youtube.com/watch?v=..." required>
+        </div>
+        <button type="submit">Adicionar</button>
+      </form>
+    </section>
+
+    <section class="list-section">
+      <h2>Jogos Cadastrados</h2>
+      <div class="toolbar">
+        <button id="exportBtn">Exportar JSON</button>
+        <button id="importBtn">Importar JSON</button>
+        <input type="file" id="importFile" accept=".json" style="display:none">
+        <button id="clearBtn" class="danger">Limpar Tudo</button>
+      </div>
+      <table id="gamesTable">
+        <thead>
+          <tr>
+            <th>ID da Partida</th>
+            <th>URL do Vídeo</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody id="gamesBody">
+        </tbody>
+      </table>
+      <p id="emptyMsg" class="empty-msg">Nenhum jogo cadastrado.</p>
+    </section>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

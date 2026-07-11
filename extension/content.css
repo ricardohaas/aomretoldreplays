@@ -1,0 +1,18 @@
+.aom-video-link {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 6px;
+  vertical-align: middle;
+  text-decoration: none;
+  transition: transform 0.15s ease;
+}
+
+.aom-video-link:hover {
+  transform: scale(1.15);
+}
+
+.aom-video-link img,
+.aom-video-link svg {
+  width: 18px;
+  height: 18px;
+}
